@@ -1,0 +1,22 @@
+{
+  "name": "status-spin",
+  "version": "1.0.0",
+  "description": "spinner that shows feedback to the user that the application is busy",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests/*"
+  },
+  "author": "Paul van Woensel",
+  "keywords": [
+    "cli",
+    "spinner",
+    "light-weight"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "cli-cursor": "^3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
+}
