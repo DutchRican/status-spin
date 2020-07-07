@@ -1,6 +1,10 @@
 {
   "name": "status-spin",
   "version": "1.0.2",
+  "repository": {
+    "url": "https://github.com/DutchRican/status-spin.git",
+    "type": "git"
+  },
   "description": "spinner that shows feedback to the user that the application is busy",
   "main": "./index.js",
   "scripts": {
