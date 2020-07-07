@@ -4,7 +4,7 @@
   "description": "spinner that shows feedback to the user that the application is busy",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/*"
+    "test": "mocha"
   },
   "author": "Paul van Woensel",
   "keywords": [

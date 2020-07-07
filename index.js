@@ -29,7 +29,7 @@ function Spinner(options) {
 Spinner.prototype.start = function () {
     this.isSpinning = true;
     cliCursor.hide(this.stream);
-    this.ticker = setInterval(() => this._update(), this.spinner.interval, false)
+    this.ticker = setInterval(() => update.call(this), this.spinner.interval, false)
 }
 
 /**
@@ -51,23 +51,17 @@ Spinner.prototype.stop = function () {
     cliCursor.show(this.stream);
 }
 
-/**
- * Don't call this directly
- */
-Spinner.prototype._update = function () {
+function update() {
     readline.clearLine(this.stream, 0);
     readline.cursorTo(this.stream, 0);
     this.runtime += this.spinner.interval;
     this.stream.write(`${this.spinner.frames[this.spinnerIndex]} ${this.message}`);
     this.spinnerIndex = (this.spinnerIndex + 1) % this.spinner.frames.length;
 }
-
 module.exports.Spinner = Spinner;
 
-
 // const s = new Spinner({ spinnerType: 'lunarCycle' });
-const s = new Spinner({ message: 'defaults are shit' });
+// // const s = new Spinner({ message: 'defaults are shit' });
+// s.start();
 
-s.start();
-
-setTimeout(() => s.stop(), 5000);
+// setTimeout(() => s.stop(), 5000);
