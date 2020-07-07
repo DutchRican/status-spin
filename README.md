@@ -1,4 +1,4 @@
-![Node.js Package](https://github.com/DutchRican/status-spin/workflows/Node.js%20Package/badge.svg?branch=master)
+![Tests](https://github.com/DutchRican/status-spin/workflows/Tests/badge.svg)
 ## Simple Spinner to show the status to the user
 
 install with `npm i status-spin`  
