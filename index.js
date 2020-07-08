@@ -59,9 +59,3 @@ function update() {
     this.spinnerIndex = (this.spinnerIndex + 1) % this.spinner.frames.length;
 }
 module.exports.Spinner = Spinner;
-
-// const s = new Spinner({ spinnerType: 'lunarCycle' });
-// // const s = new Spinner({ message: 'defaults are shit' });
-// s.start();
-
-// setTimeout(() => s.stop(), 5000);
