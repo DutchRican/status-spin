@@ -15,6 +15,12 @@ describe('Spinner', () => {
     it('should have the default spinnerType', () => {
         assert.equal(spinner.spinnerType, 'default');
     });
+
+    it('should let me set the spinnerType', () => {
+        spinner = new Spinner({spinnerType: 'track'});
+        assert.equal(spinner.spinnerType, 'track');
+    });
+
     it('should set the isSpinning to false', () => {
         assert.equal(spinner.isSpinning, false);
     });

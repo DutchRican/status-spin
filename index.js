@@ -3,6 +3,7 @@ const cliCursor = require('cli-cursor');
 
 const spinners = require('./spinners.json');
 
+const isWindows = process.platform === 'win32';
 /**{ message: string }}
  * @type {{spinnerType: 'default|dots|track|clocks|dotScroll|boxCircle|equalizer|lunarCycle', 
   message: string, stream: NodeJS.WritableStream}}
@@ -18,7 +19,7 @@ function Spinner(options) {
     const opts = Object.assign(base_options, options);
     this.stream = opts.stream;
     this.isSpinning = false;
-    this.spinnerType = opts.spinnerType;
+    this.spinnerType = isWindows ?  'default' : opts.spinnerType;
     this.spinnerIndex = 0;
     this.spinner = spinners[this.spinnerType];
     this.ticker = undefined;

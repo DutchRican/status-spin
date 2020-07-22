@@ -14,7 +14,10 @@
   "keywords": [
     "cli",
     "spinner",
-    "light-weight"
+    "light-weight",
+    "terminal",
+    "progress",
+    "status spinner"
   ],
   "license": "ISC",
   "dependencies": {
