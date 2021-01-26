@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { Spinner } = require('../index.ts');
+const { Spinner } = require('../bin/index');
 const { isNullOrUndefined, isFunction } = require('util');
 
 describe('Spinner', () => {
