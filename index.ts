@@ -1,11 +1,10 @@
 const readline = require('readline');
 const cliCursor = require('cli-cursor');
 const spinners = require('./spinners.json');
-import { BaseOptionsIFace, SpinnerTypeIFace } from './type';
+import { BaseOptionsIFace, SpinnerTypeIFace, SpinnerType } from './type';
 const isWindows = process.platform === 'win32';
 /**{ message: string }}
- * @type {{spinnerType: 'default|dots|track|clocks|dotScroll|boxCircle|equalizer|lunarCycle', 
-  message: string, stream: NodeJS.WritableStream}}
+ * @type {{spinnerType: SpinnerType, message: string, stream: NodeJS.WritableStream}}
  */
 const baseOptions: BaseOptionsIFace = {
     spinnerType: 'default',
@@ -15,9 +14,9 @@ const baseOptions: BaseOptionsIFace = {
 
 /**@param {baseOptions: BaseOptionsIFace} [options]  */
 export class Spinner {
-    stream: NodeJS.WriteStream;
+    stream?: NodeJS.WriteStream;
     isSpinning: boolean;
-    spinnerType: string;
+    spinnerType: SpinnerType;
     spinnerIndex: number;
     spinner: SpinnerTypeIFace;
     ticker?: NodeJS.Timeout;
@@ -26,7 +25,7 @@ export class Spinner {
 
     constructor(options: BaseOptionsIFace) {
         const opts = Object.assign(baseOptions, options);
-        this.stream = opts.stream;
+        this.stream = opts.stream || baseOptions.stream;
         this.isSpinning = false;
         this.spinnerType = isWindows ? 'default' : opts.spinnerType;
         this.spinnerIndex = 0;
@@ -58,7 +57,7 @@ export class Spinner {
         readline.clearLine(this.stream, 0);
         readline.cursorTo(this.stream, 0);
         this.runtime += this.spinner.interval;
-        this.stream.write(`${this.spinner.frames[this.spinnerIndex]} ${this.message}`);
+        this.stream?.write(`${this.spinner.frames[this.spinnerIndex]} ${this.message}`);
         this.spinnerIndex = (this.spinnerIndex + 1) % this.spinner.frames.length;
     }
 }

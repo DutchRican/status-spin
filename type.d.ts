@@ -1,7 +1,7 @@
 import { WriteStream } from "fs";
 
 export interface BaseOptionsIFace {
-    spinnerType: string;
+    spinnerType: SpinnerType;
     message: string;
     stream: NodeJS.WriteStream
 }
@@ -13,3 +13,6 @@ export interface SpinnerTypeIFace {
     frames: string[];
     interval: number;
 }
+
+export type SpinnerType =
+    'default'|'dots'|'track'|'clocks'|'dotScroll'|'boxCircle'|'equalizer'|'lunarCycle';
