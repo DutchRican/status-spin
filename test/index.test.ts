@@ -1,4 +1,4 @@
-import { Spinner } from '../index';
+import { Spinner } from '../lib/index';
 
 describe('Spinner', () => {
 

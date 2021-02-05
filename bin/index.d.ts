@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { BaseOptionsIFace, SpinnerTypeIFace, SpinnerType } from './types';
+import { BaseOptionsIFace, SpinnerTypeIFace, SpinnerType } from '../types';
 export declare class Spinner {
     stream?: NodeJS.WriteStream;
     isSpinning: boolean;

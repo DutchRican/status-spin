@@ -1,7 +1,7 @@
 const readline = require('readline');
 const cliCursor = require('cli-cursor');
 const spinners = require('./spinners.json');
-import { BaseOptionsIFace, SpinnerTypeIFace, SpinnerType } from './types';
+import { BaseOptionsIFace, SpinnerTypeIFace, SpinnerType } from '../types';
 const isWindows = process.platform === 'win32';
 
 export class Spinner {
